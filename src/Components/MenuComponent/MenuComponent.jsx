@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const MenuComponent = ({ menu }) => {
-  const [selectedCategory, setSelectedCategory] = useState("Italian");
+    const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const category = searchParams.get('category');
+  const [selectedCategory, setSelectedCategory] = useState(category);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
   // Extract categories from menu
