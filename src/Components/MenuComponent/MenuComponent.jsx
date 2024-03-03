@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import './MenuComponent.css';
+import axios from 'axios';
+import API_URL from '../../_helper';
 
 const MenuComponent = ({ menu }) => {
-    const location = useLocation();
+  const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const category = searchParams.get('category');
   const [selectedCategory, setSelectedCategory] = useState(category);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
-  // Extract categories from menu
-  const categories = [...new Set(menu.map(item => item.category))];
+  const [subcategoryData, setSubcategoryData] = useState([]);
 
+  // Extract categories from menu
+  const categories = [...new Set(menu.map(item => item.item_category))];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}getsubcategory/${selectedCategory}`);
+        setSubcategoryData(response.data);
+        console.log("fetched subcategory data");
+        console.log(subcategoryData);
+      } catch (error) {
+        console.error('Error fetching subcategory data:', error);
+      }
+    };
+  
+    fetchData();
+  
+  },[selectedCategory]);
+  
   // Extract unique subcategories based on selected category
   const getSubcategories = (category) => {
     const subcategories = menu
-      .filter(item => item.category === category)
-      .map(item => item.subcategory);
+      .filter(item => item.item_category === category)
+      .map(item => item.item_subcategory);
     return [...new Set(subcategories)];
   };
 
@@ -31,10 +52,11 @@ const MenuComponent = ({ menu }) => {
       <h2 className="text-center mt-4 heading">Menu Categories</h2>
       <div className="row mt-4">
         {categories.map((category, index) => (
-          <div className="col-md-3 mb-3" key={index}>
-            <div className={`card ${selectedCategory === category ? "bg-primary text-white" : ""}`} onClick={() => handleCategoryClick(category)}>
+          <div className=" col-sm-4 col-lg-2 col-md-2 mb-3" key={index}>
+            <div className={`card ${selectedCategory === category ? "shadow-lg rounded transform scale-150 text-white" : ""}`} onClick={() => handleCategoryClick(category)}>
+              <img className="imageControl" src={`../../src/assets/Category_Img/${category}.jpg`}/>
               <div className="card-body">
-                <h5 className="card-title card-heading-text">{category}</h5>
+                <h6 className="card-title card-heading-text">{category}</h6>
               </div>
             </div>
           </div>
@@ -44,6 +66,7 @@ const MenuComponent = ({ menu }) => {
       <div className="row mt-4">
         <div className="col">
           <h2 className="text-center heading">Menu</h2>
+          <h4>Results for {selectedCategory}</h4>
           {selectedCategory && (
             <div className="accordion " id="accordionSubcategories">
               {getSubcategories(selectedCategory).map((subcategory, idx) => (
@@ -68,9 +91,9 @@ const MenuComponent = ({ menu }) => {
                   >
                     <div className="accordion-body">
                       <ul className="list-group">
-                        {menu.filter(item => item.category === selectedCategory && item.subcategory === subcategory).map((item, i) => (
+                        {menu.filter(item => item.item_category === selectedCategory && item.item_subcategory === subcategory).map((item, i) => (
                           <li key={i} className="list-group-item">
-                            {item.dish_name} - ${item.price}
+                            {item.item_name} - {item.item_price} INR
                           </li>
                         ))}
                       </ul>

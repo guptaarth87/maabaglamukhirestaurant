@@ -1,26 +1,37 @@
-import React from 'react';
+import React,{useEffect , useState} from 'react';
 import MenuComponent from '../Components/MenuComponent/MenuComponent'
-
+import axios from 'axios';
+import API_URL from '../_helper';
 export function MenuPage() {
-    const menu = [
-    { dish_name: "Pizza", price: 10, category: "Beverages", subcategory: "Vegetarian" },
-    { dish_name: "Pasta", price: 12, category: "Beverages", subcategory: "Vegetarian" },
-    { dish_name: "Burger", price: 8, category: "Main Course", subcategory: "Vegetarian" },
-    { dish_name: "Steak", price: 20, category: "Main Course", subcategory: "Non-vegetarian" },
-    { dish_name: "Sushi", price: 15, category: "Desserts", subcategory: "Non-vegetarian" },
-    { dish_name: "Ramen", price: 13, category: "Desserts", subcategory: "Vegetarian" },
-    { dish_name: "Tacos", price: 9, category: "Starters", subcategory: "Vegetarian" },
-    { dish_name: "Enchiladas", price: 11, category: "Starters", subcategory: "Vegetarian" },
-    { dish_name: "Pad Thai", price: 14, category: "Fast Food", subcategory: "Vegetarian" },
-    { dish_name: "Green Curry", price: 16, category: "Fast Food", subcategory: "Vegetarian" },
-    { dish_name: "Pav extra", price: 14, category: "Extras", subcategory: "Vegetarian" },
-    { dish_name: "Roti Extra", price: 16, category: "Extras", subcategory: "Vegetarian" }
-  
-];
+   const [menuData , setmenuData] =useState([]);
+  useEffect(() => {
+    // Fetch menu data from API endpoint
+    fetchmenuData();
+  }, []);
+
+  const fetchmenuData = async () => {
+    try {
+      const response = await axios.get(`${API_URL}getallmenu`); // Replace this URL with your actual API endpoint
+      
+      console.log(response.data);
+      setmenuData(response.data);
+    } catch (error) {
+      console.error('Error fetching menu data:', error);
+    }
+  };
+//     const menu = [
+//     { item_name: "Pizza", item_price: 10, item_category: "Beverages", item_subcategory: "Vegetarian" },
+//     { item_name: "Pasta", item_price: 12, item_category: "Beverages", item_subcategory: "Vegetarian" },
+//     { item_name: "Burger", item_price: 8, item_category: "Main Course", item_subcategory: "Vegetarian" },
+//     { item_name: "Steak", item_price: 20, item_category: "Main Course", item_subcategory: "Non-vegetarian" },
+//     { item_name: "Sushi", item_price: 15, item_category: "Desserts", item_subcategory: "Non-vegetarian" },
+//     { item_name: "Ramen", item_price: 13, item_category: "Desserts", item_subcategory: "Vegetarian" }
+
+// ];
   return (
     <div className='MenuPage'>
       
-      <MenuComponent menu={menu} />
+      <MenuComponent menu={menuData} />
     </div>
   );
 }

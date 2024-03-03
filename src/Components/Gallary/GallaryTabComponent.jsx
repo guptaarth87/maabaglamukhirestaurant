@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Img2 from '../../assets/Carousel_Img/2.jpg';
+import FastFood from '../../assets/Category_Img/Fast Food.jpg';
 
 const GallaryTabComponent = () => {
   const [activeTab, setActiveTab] = useState('ambiance');
@@ -9,7 +10,7 @@ const GallaryTabComponent = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" id="gallery">
       <ul className="nav nav-tabs">
         <li className="nav-item">
           <button className={`heading nav-link ${activeTab === 'ambiance' ? 'active' : ''}`} onClick={() => handleTabClick('ambiance')}>Ambiance</button>
@@ -39,16 +40,16 @@ const GallaryTabComponent = () => {
         {activeTab === 'food' && (
             <div className="row">
         <div className="col-lg-3 col-md-5 col-sm-3 mb-3">
-        <img src={Img2} className="img-fluid rounded" alt="Gallery 1" />
+        <img src={FastFood} className="img-fluid rounded" alt="Gallery 1" />
       </div>
       <div className="col-lg-3 col-md-5 col-sm-3 mb-3">
-        <img src={Img2} className="img-fluid rounded" alt="Gallery 2" />
+        <img src={FastFood} className="img-fluid rounded" alt="Gallery 2" />
       </div>
       <div className="col-lg-3 col-md-5 col-sm-3 mb-3">
-        <img src={Img2} className="img-fluid rounded" alt="Gallery 3" />
+        <img src={FastFood} className="img-fluid rounded" alt="Gallery 3" />
       </div>
       <div className="col-lg-3 col-md-5 col-sm-3 mb-3">
-        <img src={Img2} className="img-fluid rounded" alt="Gallery 4" />
+        <img src={FastFood} className="img-fluid rounded" alt="Gallery 4" />
       </div>
   </div>
         )}
