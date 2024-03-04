@@ -16,18 +16,17 @@ const MenuComponent = ({ menu }) => {
   // Extract categories from menu
   const categories = [...new Set(menu.map(item => item.item_category))];
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${API_URL}getsubcategory/${selectedCategory}`);
+      setSubcategoryData(response.data);
+      console.log("fetched subcategory data");
+      console.log(subcategoryData);
+    } catch (error) {
+      console.error('Error fetching subcategory data:', error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${API_URL}getsubcategory/${selectedCategory}`);
-        setSubcategoryData(response.data);
-        console.log("fetched subcategory data");
-        console.log(subcategoryData);
-      } catch (error) {
-        console.error('Error fetching subcategory data:', error);
-      }
-    };
-  
     fetchData();
   
   },[selectedCategory]);
