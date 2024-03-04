@@ -42,7 +42,7 @@ const MenuComponent = ({ menu }) => {
 
   // Function to handle category selection
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category === selectedCategory ? null : category);
+    setSelectedCategory(category === selectedCategory ? category : category);
     setSelectedSubcategory(null); // Reset subcategory selection when changing category
   };
 
