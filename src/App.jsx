@@ -1,21 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {Routes , Route } from 'react-router-dom'
-
+import axios from 'axios'
 import Landing from './Pages/Landing'
 import { MenuPage } from './Pages/MenuPage'
+import Navbar from './Components/Navigation/Navbar'
+import Footer from './Components/Footer/Footer'
+import API_URL from './_helper'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+   
+  
+   
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Landing/>}/>
+        <Route path='/' element={<><Navbar></Navbar><Landing/></>}/>
         <Route path='/home' element={<Landing/>}/>
-        <Route path='/menupage' element={<MenuPage/>}/>
+        <Route path='/menupage' element={<><Navbar></Navbar><MenuPage></MenuPage><Footer></Footer></>}/>
       </Routes>
     </>
   )

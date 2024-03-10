@@ -2,10 +2,10 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="container mt-5">
+    <div id='contact' className="container mt-5">
         <div className="text-center heading">Contact Us</div>
       <div className="row mt-4">
-        <div className="col-md-6">
+        <div className="col-md-6 ">
           <iframe
             title="Google Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.0643712843!2d-0.24167972817070326!3d51.52877184195695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ebe464373b%3A0x8203222c5d6bf66f!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1630425721467!5m2!1sen!2sus"
@@ -14,6 +14,7 @@ const Contact = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            className='rounded-4'
           ></iframe>
         </div>
         <div className="col-md-6">

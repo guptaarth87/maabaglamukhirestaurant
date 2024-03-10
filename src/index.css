@@ -80,3 +80,19 @@
 .image-control-fit{
   object-fit: cover;
 }
+
+
+
+
+/* development css */
+.rr{
+  border: 2px solid red;
+}
+
+.bb{
+  border: 2px solid blue;
+}
+
+.gg{
+  border: 2px solid green;
+}

@@ -2,6 +2,7 @@ import React,{useEffect , useState} from 'react';
 import MenuComponent from '../Components/MenuComponent/MenuComponent'
 import axios from 'axios';
 import API_URL from '../_helper';
+import MenuComponent1 from '../Components/MenuComponent/MenuComponent1';
 export function MenuPage() {
    const [menuData , setmenuData] =useState([]);
   useEffect(() => {
@@ -31,7 +32,9 @@ export function MenuPage() {
   return (
     <div className='MenuPage'>
       
-      <MenuComponent menu={menuData} />
+      <MenuComponent1 menu={menuData} />
+      
+       {/* <MenuComponent menu={menuData} /> */}
     </div>
   );
 }
