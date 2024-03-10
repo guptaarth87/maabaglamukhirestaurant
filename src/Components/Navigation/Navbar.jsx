@@ -4,6 +4,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {HashLink} from 'react-router-hash-link';
 import BasicInfo from '../../ConfigData/InfoData'
+import { MdArrowBackIosNew } from "react-icons/md";
 
 // menu icons
 import { BiSolidDrink } from "react-icons/bi";
@@ -17,6 +18,8 @@ import { LuSoup } from "react-icons/lu";
 import { FaIceCream } from "react-icons/fa";
 import { FaBowlingBall } from "react-icons/fa6";
 
+import { useLocation  } from 'react-router-dom';
+
 import './Navbar.css'
 import { Link } from 'react-router-dom';
 
@@ -27,15 +30,19 @@ const Navbar = () => {
     const handleClose = () => setToggle(false);
   const handleShow = () => setToggle(true);
 
+  const location = useLocation();
+
+ 
+
 
   return (
     <>
 
-        <div className='bg-light w-100 d-flex justify-content-between align-items-center  px-4 nav-drop-shadow  card-heading-text py-4 '>
+        <div className='bg-light w-100 d-flex justify-content-between align-items-center  px-4 nav-drop-shadow  card-heading-text py-4 fixing-navs'>
              {/* div 1 */}
              <div className='d-flex justify-content-center align-items-baseline gap-4 mt-2'>
              
-             <RiMenu2Fill  onClick={handleShow} className=''/>
+            { location.pathname === "/menupage" ? <Link style={{"textDecoration" : "none", "color" : "black"}} to="/"><MdArrowBackIosNew></MdArrowBackIosNew> back</Link> : <RiMenu2Fill  onClick={handleShow} className=''/> }  
           
              
              <p className='fs-4 '>LOGO</p>
@@ -44,13 +51,13 @@ const Navbar = () => {
              {/* div 2*/}
              <div className='d-none d-md-flex justify-content-center align-items-center gap-5 mt-3'>
 
-              <p className='nav-links'>
-              <HashLink to="/#gallery"> Gallery </HashLink>
+              <p className='nav-links' >
+              <HashLink to="/#gallery"   > Gallery </HashLink>
               </p> 
-              <p className='nav-links'>
+              <p className='nav-links' >
               <HashLink to="/#about"> About </HashLink>
               </p> 
-              <p className='nav-links'>
+              <p className='nav-links' >
               <HashLink to="/#contact"> Contact </HashLink>
               </p> 
             
@@ -71,13 +78,13 @@ const Navbar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-        <p className='sidebar-menu-links card-heading-text'>
+        <p className='sidebar-menu-links card-heading-text' onClick={handleClose}>
               <HashLink to="/#gallery"> Gallery </HashLink>
               </p> 
-              <p className='sidebar-menu-links card-heading-text'>
+              <p className='sidebar-menu-links card-heading-text'  onClick={handleClose}>
               <HashLink to="/#about"> About </HashLink>
               </p> 
-              <p className='sidebar-menu-links card-heading-text'>
+              <p className='sidebar-menu-links card-heading-text'  onClick={handleClose}>
               <HashLink to="/#contact"> Contact </HashLink>
               </p> 
              
@@ -85,20 +92,20 @@ const Navbar = () => {
 
             <div className=' sidebar-nav card-description-text sidebar-quick-menu-items-container'>
                
-                <Link > <p className='d-flex gap-1  align-items-baseline '><BiSolidDrink className="" />Beverages</p></Link>
-                <Link > <p className='d-flex gap-1 align-items-baseline'><FaHamburger className="" />Fast Food</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=beverages`}> <p className='d-flex gap-1  align-items-baseline '><BiSolidDrink className=""  />Beverages</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=fast food`}> <p className='d-flex gap-1 align-items-baseline'><FaHamburger className="" />Fast Food</p></Link>
 
-                <Link > <p className='d-flex gap-1 align-items-baseline'><PiBeerBottleFill className="" />Cold Drinks</p></Link>
-                <Link > <p className='d-flex gap-1 align-items-baseline'><MdFoodBank className="" />Main Course</p></Link>
+                <Link  onClick={handleClose} to={`/menupage?category=cold drinks`}> <p className='d-flex gap-1 align-items-baseline'><PiBeerBottleFill className="" />Cold Drinks</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=main course`}> <p className='d-flex gap-1 align-items-baseline'><MdFoodBank className="" />Main Course</p></Link>
 
-                <Link > <p className='d-flex gap-1 align-items-baseline'><LuDessert className="" />Desserts</p></Link>
-                <Link > <p className='d-flex gap-1 align-items-baseline'><FaPizzaSlice className="" />Starters</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=desserts`}> <p className='d-flex gap-1 align-items-baseline'><LuDessert className="" />Desserts</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=starters`}> <p className='d-flex gap-1 align-items-baseline'><FaPizzaSlice className="" />Starters</p></Link>
 
-                <Link > <p className='d-flex gap-1 align-items-baseline'><BiSolidSushi className="" />Extras</p></Link>
-                <Link > <p className='d-flex gap-1 align-items-baseline'><LuSoup className="" />South Indian</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=extras`} > <p className='d-flex gap-1 align-items-baseline'><BiSolidSushi className="" />Extras</p></Link>
+                <Link  onClick={handleClose} to={`/menupage?category=south indian`}> <p className='d-flex gap-1 align-items-baseline'><LuSoup className="" />South Indian</p></Link>
 
-                <Link > <p className='d-flex gap-1 align-items-baseline'><FaIceCream className="" />Ice Creams</p></Link>
-                <Link > <p className='d-flex gap-1 align-items-baseline'><FaBowlingBall className="" />Thali</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=ice creams`}> <p className='d-flex gap-1 align-items-baseline'><FaIceCream className="" />Ice Creams</p></Link>
+                <Link onClick={handleClose} to={`/menupage?category=thali`} > <p className='d-flex gap-1 align-items-baseline'><FaBowlingBall className="" />Thali</p></Link>
               
                
             </div>
