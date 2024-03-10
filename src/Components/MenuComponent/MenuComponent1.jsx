@@ -9,6 +9,17 @@ import Sample from '../../assets/footer/footer-bg.jpg'
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
+// img
+import Beverages from '../../assets/Category_Img/Beverages.jpg';
+import ColdDrinks from '../../assets/Category_Img/Cold Drinks.jpg';
+import Desserts from '../../assets/Category_Img/Desserts.jpg';
+import FastFood from '../../assets/Category_Img/Fast Food.jpg';
+import IceCreams from '../../assets/Category_Img/Ice Creams.jpg';
+import MainCourse from '../../assets/Category_Img/Main Course.jpg';
+import SouthIndian from '../../assets/Category_Img/South Indian.jpg';
+import Starters from '../../assets/Category_Img/Starters.jpg';
+import Thali from '../../assets/Category_Img/Thali.jpg';
+
 
 // carausal
 import Slider from "react-slick";
@@ -29,6 +40,21 @@ const MenuComponent1 = ({ menu }) => {
   // loader : 
   // usestate -> isloading = true
   // 
+
+  // imgae array
+  // const [categoryImg , setCategoryImg] = useState([])
+  const arrayImage = {
+    "Beverages": Beverages,
+    "Cold Drinks": ColdDrinks,
+    "Desserts": Desserts,
+    "Fast Food": FastFood,
+    "Ice Creams": IceCreams,
+    "Main Course": MainCourse,
+    "South Indian": SouthIndian,
+    "Starters": Starters,
+    "Thali": Thali
+  };
+  
   // 
 
 
@@ -138,7 +164,7 @@ const MenuComponent1 = ({ menu }) => {
             {categories.map((category, index) => (
               <div className=" col-sm-4 col-lg-2 col-md-3 mb-3 d-flex flex-column justify-content-center align-items-center menu-carousal-card-div px-2" key={index}>
                 <div className={`card ${selectedCategory === category ? "shadow-lg rounded transform scale-150 text-white" : ""}`} onClick={() => handleCategoryClick(category)}>
-                  <img className="imageControl" src={`../../src/assets/Category_Img/${category}.jpg`} />
+                  <img className="imageControl" src={arrayImage[category]} />
 
                 </div>
 
