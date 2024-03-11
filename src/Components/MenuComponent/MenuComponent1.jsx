@@ -51,7 +51,7 @@ const MenuComponent1 = ({ menu }) => {
     "Ice Creams": IceCreams,
     "Main Course": MainCourse,
     "South Indian": SouthIndian,
-    "Starters": Starters,
+    "Starter": Starter,
     "Thali": Thali
   };
   
