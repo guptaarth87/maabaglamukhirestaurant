@@ -151,7 +151,7 @@ const MenuComponent1 = ({ menu }) => {
     <div className="container">
 
       <h2 className="text-center mt-4 heading">Other Menu Categories</h2>
-
+<br></br>
       <div className='slider-upper-container'>
 
 
