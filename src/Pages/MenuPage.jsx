@@ -3,8 +3,10 @@ import MenuComponent from '../Components/MenuComponent/MenuComponent'
 import axios from 'axios';
 import API_URL from '../_helper';
 import MenuComponent1 from '../Components/MenuComponent/MenuComponent1';
+import Loader from '../Components/Loader/Loader';
 export function MenuPage() {
    const [menuData , setmenuData] =useState([]);
+   const [isLoading , setIsLoading] = useState(true);
   useEffect(() => {
     // Fetch menu data from API endpoint
     fetchmenuData();
@@ -16,6 +18,7 @@ export function MenuPage() {
       
       console.log(response.data);
       setmenuData(response.data);
+      setIsLoading(false)
     } catch (error) {
       console.error('Error fetching menu data:', error);
     }
@@ -31,9 +34,14 @@ export function MenuPage() {
 // ];
   return (
     <div className='MenuPage'>
+      {
+        isLoading?
+        <Loader/>
+        :
+        <MenuComponent1 menu={menuData} />
       
-      <MenuComponent1 menu={menuData} />
-      
+      }
+     
        {/* <MenuComponent menu={menuData} /> */}
     </div>
   );
