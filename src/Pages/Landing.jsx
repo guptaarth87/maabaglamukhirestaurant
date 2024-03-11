@@ -57,7 +57,9 @@ export default function Landing() {
    <div className="container" style={{"top":"20rem"}}>
  <ProductCategoryDisplay/>
  <div className="text-center">
- <img src={BrandingImg} className='col-10 text-center' />
+  <div className="row">
+ <img src={BrandingImg} className='col-lg-10 col-md-12 col-sm-12 text-center' />
+ </div>
  </div>
 <GallaryTabComponent/>
 <MissionVision/>
