@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Img2 from '../../assets/Carousel_Img/2.jpg';
+
 import FastFood from '../../assets/Category_Img/Fast Food.jpg';
 import './GallaryTabComponent.css';
 const GallaryTabComponent = () => {

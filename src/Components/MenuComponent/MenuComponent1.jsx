@@ -45,6 +45,7 @@ const MenuComponent1 = ({ menu }) => {
   // const [categoryImg , setCategoryImg] = useState([])
   const arrayImage = {
     "Beverages": Beverages,
+    "Extra": FastFood,
     "Cold Drinks": ColdDrinks,
     "Desserts": Desserts,
     "Fast Food": FastFood,

@@ -8,6 +8,7 @@ import MainCourse from '../../assets/Category_Img/Main Course.jpg';
 import SouthIndian from '../../assets/Category_Img/South Indian.jpg';
 import Starters from '../../assets/Category_Img/Starters.jpg';
 import Thali from '../../assets/Category_Img/Thali.jpg';
+import Extra from '../../assets/Category_Img/Fast Food.jpg';
 
 import './ProductCategoryDisplay.css';
 import { Col } from 'react-bootstrap';
@@ -78,6 +79,13 @@ export default function ProductCategoryDisplay() {
         link : ""
 
       },
+      {
+        image : Extra,
+        heading : "Extra" ,
+        description : "Enhance your meal with our delicious selection of extras.",
+        link : ""
+
+      }
     ]
   return (
     <>
