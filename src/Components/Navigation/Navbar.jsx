@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <>
 
-        <div className='bg-light w-100 d-flex justify-content-between align-items-center  px-4 nav-drop-shadow  card-heading-text py-4 fixing-navs'>
+        <div className='bg-light w-100 d-flex justify-content-between align-items-center  px-4 nav-drop-shadow   py-4 fixing-navs'>
              {/* div 1 */}
              <div className='d-flex justify-content-center align-items-baseline gap-4 mt-2'>
              

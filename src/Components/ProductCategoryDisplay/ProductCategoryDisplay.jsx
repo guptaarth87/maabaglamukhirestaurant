@@ -92,13 +92,13 @@ export default function ProductCategoryDisplay() {
 
   {
            itemData.map((value)=>(
-            <div className="col-md-6 col-lg-4 mb-4 d-flex flex-column quick-menu-card">
+            <div className="col-md-4 col-lg-3 col-sm-6 mb-4 d-flex flex-column quick-menu-card">
           <img src={value.image} className="card-img-top rounded-5 image-control-fit img-size-control" alt="Beverages" />
 
            <div className=" quick-menu-card-inner-div  card-shadow-effect">
               <h5 className="card-title text-center card-heading-text">{value.heading}</h5>
               <p className="card-text card-description-text card-description-text "> {value.description}</p>
-
+ 
              <Link to={`/menupage?category=${value.heading}`} className='quick-menu-card-btn  btn btn-warning'>View</Link>
               
             </div>

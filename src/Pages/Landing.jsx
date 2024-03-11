@@ -7,6 +7,7 @@ import Contact from '../Components/Contact/Contact'
 import Footer from '../Components/Footer/Footer'
 import {Link} from 'react-router-dom';
 import {HashLink} from 'react-router-hash-link';
+import BrandingImg from '../assets/Branding/BrandingImg.png';
 import API_URL from '../_helper'
 import axios from 'axios'
 export default function Landing() {
@@ -55,6 +56,9 @@ export default function Landing() {
    <Hero/>
    <div className="container" style={{"top":"20rem"}}>
  <ProductCategoryDisplay/>
+ <div className="text-center">
+ <img src={BrandingImg} className='col-10 text-center' />
+ </div>
 <GallaryTabComponent/>
 <MissionVision/>
 <Contact/>

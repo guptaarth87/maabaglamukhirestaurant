@@ -1,7 +1,20 @@
 .fixing-navs{
     width: 100dvh;
     position: sticky;
+   
     z-index: 3;
+    top: 0;
+    left: 200px;
+    height: 5rem;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
 }
 
 .nav-links a{
