@@ -9,6 +9,7 @@ import { MenuPage } from './Pages/MenuPage'
 import Navbar from './Components/Navigation/Navbar'
 import Footer from './Components/Footer/Footer'
 import API_URL from './_helper'
+import ScrollToTop from './ScrollToTop'
 
 
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+    <ScrollToTop/>
       <Routes>
         <Route path='/' element={<><Navbar></Navbar><Landing/></>}/>
         <Route path='/home' element={<Landing/>}/>
