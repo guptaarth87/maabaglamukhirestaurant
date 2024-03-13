@@ -169,7 +169,7 @@ const MenuComponent1 = ({ menu }) => {
 
                 </div>
 
-                <div className={`card-body menu-carousal-card-heading-div ${selectedCategory === category ? " bg-warning" : " "} `}>
+                <div className={`card-body menu-carousal-card-heading-div ${selectedCategory === category ? " bg-warning" : " "} `} onClick={() => handleCategoryClick(category)}>
                   <p className="card-title card-heading-text">{category}</p>
                 </div>
               </div>
