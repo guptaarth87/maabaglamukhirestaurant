@@ -3,7 +3,9 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-4 mt-4 rounded-top-5 footer-bg">
+     <>
+
+<footer className="bg-dark text-light py-4 mt-4 rounded-top-5 footer-bg">
       <div className="container">
         <div className="row">
           <div className="col-md-4">
@@ -27,7 +29,24 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+
+    {/* hr
+       <div className='footer-line'>
+
+       </div>
+
+       <div>
+          <p>Copyright 2024 Maa Baglamukhi Resort </p>
+          <p>License Number : 11234988221</p>
+          <p>Powered By : Data Salt</p>
+
+       </div> */}
+
     </footer>
+
+     </>
+   
   );
 };
 

@@ -37,6 +37,12 @@
 box-shadow: 3px 10px 40px -7px rgba(0,0,0,0.58);
 }
 
+.nav-bell{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
 .sidebar-nav{
     font-size: 19px;
 }

@@ -18,10 +18,14 @@ import { LuSoup } from "react-icons/lu";
 import { FaIceCream } from "react-icons/fa";
 import { FaBowlingBall } from "react-icons/fa6";
 
+import Bell_Gif from '../../assets/Navbar/icons8-bell.gif'
+
 import { useLocation  } from 'react-router-dom';
 
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+
+import FeedbackPopup from "../Popup/FeedbackPopup"
 
 
 const Navbar = () => {
@@ -32,11 +36,32 @@ const Navbar = () => {
 
   const location = useLocation();
 
+
+  // show feedback popup 
+  const [showPopUp , setShowPopUp] = useState(false)
+
+  const openPopUp = () =>{
+     setShowPopUp(true)
+  }
+ 
+  const closePopUp = () =>{
+     setShowPopUp(false)
+  }
+
+
  
 
 
   return (
     <>
+
+
+    {/* pop starts */}
+
+    {showPopUp && <FeedbackPopup closePopUp={closePopUp} ></FeedbackPopup>}
+
+
+    {/* pop ends */}
 
         <div className='bg-light w-100 d-flex justify-content-between align-items-center  px-4 nav-drop-shadow   py-4 fixing-navs'>
              {/* div 1 */}
@@ -64,7 +89,8 @@ const Navbar = () => {
              </div>
 
              {/* div 3 */}
-             <div>
+             <div className='d-flex '>
+            <img onClick={openPopUp} className='nav-bell' src={Bell_Gif} alt="" />
             <Link to={`https://wa.me/${BasicInfo.nav_whatsapp_number}`}><IoLogoWhatsapp className='text-success fs-3 mx-3'/></Link>
 
              </div>
