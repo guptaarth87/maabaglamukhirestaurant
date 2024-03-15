@@ -102,10 +102,14 @@ const Navbar = () => {
 
 
         <Offcanvas show={toggle} onHide={handleClose} >
+      
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title> <p className='fw-bold'> MaaBagla Mukhi Resort</p></Offcanvas.Title>
+        {/* <img className='logo-control col-5 m-2 ' src={Logo} alt="Logo" /> */}
+      
+          <Offcanvas.Title> <p className='fw-bold '> MaaBagla Mukhi Resort</p></Offcanvas.Title>
+         
         </Offcanvas.Header>
-        <Offcanvas.Body>
+       <Offcanvas.Body>
 
         <p className='sidebar-menu-links card-heading-text' onClick={handleClose}>
               <HashLink to="/#gallery"> Gallery </HashLink>
