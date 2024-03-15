@@ -5,7 +5,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import {HashLink} from 'react-router-hash-link';
 import BasicInfo from '../../ConfigData/InfoData'
 import { MdArrowBackIosNew } from "react-icons/md";
-
+import Logo from '../../assets/Logo/Logo.jpeg';
 // menu icons
 import { BiSolidDrink } from "react-icons/bi";
 import { FaHamburger } from "react-icons/fa";
@@ -70,7 +70,9 @@ const Navbar = () => {
             { location.pathname === "/menupage" ? <Link style={{"textDecoration" : "none", "color" : "black"}} to="/"><MdArrowBackIosNew></MdArrowBackIosNew> back</Link> : <RiMenu2Fill  onClick={handleShow} className=''/> }  
           
              
-             <p className='fs-4 '>LOGO</p>
+             <p className='fs-4 '>
+               <img className='logo-control' src={Logo} alt="Logo" />
+             </p>
              </div>
 
              {/* div 2*/}
@@ -79,6 +81,7 @@ const Navbar = () => {
               <p className='nav-links' >
               <HashLink to="/#gallery"   > Gallery </HashLink>
               </p> 
+             
               <p className='nav-links' >
               <HashLink to="/#about"> About </HashLink>
               </p> 

@@ -1,6 +1,9 @@
 import React from 'react';
 import './Footer.css'
-
+import basicInfo from '../../ConfigData/InfoData';
+import { IoLogoWhatsapp } from "react-icons/io";
+import Logo from '../../assets/Logo/Logo.jpeg';
+import {Link} from 'react-router-dom';
 const Footer = () => {
   return (
      <>
@@ -9,20 +12,23 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <img src="logo.png" alt="Logo" className="img-fluid mb-3" style={{ maxHeight: '50px' }} />
-            <p style={{color : "white"}} className='card-heading-text'>Maa Bagla Mukhi Restaurant</p>
+          <img className='logo-control img-fluid mb-3' src={Logo} alt="Logo" style={{ maxHeight: '50px' }}/>
+            <p style={{color : "white"}} className='card-heading-text'>{basicInfo.Restaurant_name}</p>
             <p style={{color : "white", marginTop : "-10px"}} className='card-description-text'>A place to savor the best flavors!</p>
           </div>
           <div className="col-md-4">
             <h5 style={{ color : "white"}} className='card-heading-text'>Contact Us</h5>
-            <p style={{color : "white", marginTop : "15px"}} className='card-description-text'><i className="fas fa-envelope"></i> info@example.com</p>
-            <p style={{color : "white", marginTop : "-12px"}} className='card-description-text'><i className="fas fa-phone"></i> +1 123 456 789</p>
-            <p style={{color : "white", marginTop : "-12px"}} className='card-description-text'><i className="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+            <p style={{color : "white", marginTop : "15px"}} className='card-description-text'><i className="fas fa-envelope"></i> {basicInfo.email}</p>
+            <p style={{color : "white", marginTop : "-12px"}} className='card-description-text'><i className="fas fa-phone"></i> {basicInfo.Mobile_number}</p>
+            <p style={{color : "white", marginTop : "-12px"}} className='card-description-text'><i className="fas fa-map-marker-alt"></i> {basicInfo.Address}</p>
           </div>
           <div className="col-md-4">
             <h5 style={{ color : "white"}} className='card-heading-text'>Connect With Us</h5>
             <div>
-              <a href="#"><i className="fab fa-facebook fa-lg mr-3"></i></a>
+              <br></br>
+              <a href="#"><i className="fab fa-facebook fa-lg mr-3"> </i></a>
+              <Link to={`https://wa.me/${basicInfo.nav_whatsapp_number}`}><h5 className='text-white'>Via WhatsApp</h5></Link>
+
               <a href="#"><i className="fab fa-twitter fa-lg mr-3"></i></a>
               <a href="#"><i className="fab fa-instagram fa-lg"></i></a>
             </div>
